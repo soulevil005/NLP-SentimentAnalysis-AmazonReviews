@@ -1,2 +1,98 @@
+=========================================
+DATASET DOWNLOAD & SETUP INSTRUCTIONS
+=========================================
+
+Dataset used:
+Amazon Reviews (FastText Format)
+Kaggle Link:
+https://www.kaggle.com/datasets/bittlingmayer/amazonreviews
+
+-----------------------------------------
+1. REQUIREMENTS
+-----------------------------------------
+To download the dataset directly as zip file, you need:
 Contains the kaggle dataset: https://www.kaggle.com/datasets/bittlingmayer/amazonreviews
+
 Extract it in this folder
+
+
+
+To download the dataset via script or terminal, you need:
+
+1. Kaggle account
+2. Kaggle API token (kaggle.json)
+
+Generate token from:
+Profile → Account → Create New API Token
+
+This downloads a file named:
+kaggle.json
+
+-----------------------------------------
+2. SAVE KAGGLE API TOKEN
+-----------------------------------------
+Place kaggle.json into:
+
+Windows:
+C:\Users\<your-username>\.kaggle\kaggle.json
+
+macOS / Linux / WSL:
+~/.kaggle/kaggle.json
+
+Set permissions (macOS/Linux):
+chmod 600 ~/.kaggle/kaggle.json
+
+-----------------------------------------
+3. DOWNLOAD THE DATASET
+-----------------------------------------
+Run the following command from the project root folder:
+
+kaggle datasets download -d bittlingmayer/amazonreviews -p data/raw --unzip
+
+This will create:
+data/raw/train.ft.txt
+data/raw/test.ft.txt
+
+-----------------------------------------
+4. DATASET FORMAT
+-----------------------------------------
+The dataset files are in FastText-style format:
+
+__label__1 <review text>
+__label__2 <review text>
+
+Label Mapping:
+__label__1 → Negative (0)
+__label__2 → Positive (1)
+
+-----------------------------------------
+5. STORAGE WARNING
+-----------------------------------------
+DO NOT upload the dataset to GitHub.
+The full dataset is several GB and will exceed GitHub’s file size limits.
+
+Keep dataset only in:
+data/raw/
+
+-----------------------------------------
+6. OPTIONAL: SMALL SAMPLE
+-----------------------------------------
+You may create:
+data/sample/sample_5k.txt
+for quick experiments or debugging.
+
+-----------------------------------------
+7. VERIFY THE DOWNLOAD
+-----------------------------------------
+After download, ensure these files exist:
+
+data/raw/train.ft.txt
+data/raw/test.ft.txt
+
+If the files are missing, check:
+- Kaggle API token placement
+- Kaggle account permissions
+- Internet connection
+-----------------------------------------
+
+END OF FILE
